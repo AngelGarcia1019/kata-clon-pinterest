@@ -144,8 +144,8 @@ body {
 
 .main-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(236px, 1fr));
-  grid-template-rows: masonry;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  grid-template-rows: auto;
   justify-content: center;
   gap: 0.5rem;
   margin-left: auto;
@@ -306,6 +306,12 @@ body {
 @media screen and (max-width: 720px) {
   .nav_btn {
     display: none;
+  }
+}
+
+@media (max-width: 2015px) {
+  .main-container {
+    padding-right: 40px;
   }
 }
 @media (min-width: 1764px) and (max-width: 2015px) {
