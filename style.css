@@ -1,20 +1,18 @@
-html {
-  width: 100vw;
-  height: 100vh;
-  overflow-x: scroll;
-}
 body {
   margin: 0 0;
   font-family: "BlinkMacSystemFont", "Segoe UI", " Roboto", "Oxygen-Sans",
-    "Ubuntu", Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica,
-    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo",
-    "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
+    "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica,
+    "Hiragino Kaku Gothic Pro", "Meiryo", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: 600;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .header-container {
-  display: flex;
+  height: 80px;
+  width: 100%;
 }
 
 .nav-container-btns-left {
@@ -145,22 +143,143 @@ body {
 }
 
 .main-container {
-  background-color: coral;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(236px, 1fr));
+  justify-content: center;
+  grid-template-rows: masonry;
+  gap: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.card-image {
-  margin-left: 20px;
-  margin-right: 20px;
-  height: 200px;
-  width: 200px;
-  /* background-color: black; */
+.card {
+  position: relative;
+  width: 235px;
+  height: 450px;
+  border-radius: 15px;
+  margin: 2rem;
 }
 
-.card-image:hover {
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  border-radius: inherit;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease-out;
+}
+
+.card:hover::before {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.card img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn_save {
+  position: absolute;
+  color: white;
+  background-color: red;
+  padding: 10px;
+  border-radius: 25px;
+  top: 15px;
+  right: 10px;
+  border-style: none;
+  display: none;
+}
+
+.card:hover .btn_save {
+  display: inline-flex;
+}
+
+.card:hover .lowermenu {
+  display: flex;
+}
+
+.lowermenu {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  bottom: 10px;
+  text-decoration: none;
+  align-items: center;
+  left: 10px;
+  right: 10px;
+  display: none;
+}
+
+.lowermenu ion-icon {
+  background-color: lightgray;
+  font-size: 20px;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.lowermenu button {
+  min-width: 120px;
+  padding: 10px;
+  background-color: lightgray;
+  text-decoration: none;
+  border-radius: 15px;
+  border-style: none;
+}
+
+.lowermenu button a {
+  text-decoration: none;
+  border-style: none;
+  color: white;
 }
 
 @media screen and (min-width: 720px) {
   .finder-container {
-    width: 838px;
+    width: 72vw;
+  }
+}
+
+.btn_more {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  bottom: 10px;
+  right: 10px;
+  margin-right: 8px;
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  background-color: transparent;
+  perspective: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  transition: transform 85ms ease-out;
+  animation-delay: 100ms;
+  transform: translateY(0px);
+  transition-delay: 100ms;
+  transition-duration: 0.85s;
+  transition-timing-function: cubic-bezier(0.19, 1.32, 0.48, 1);
+  filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 0px 8px);
+  background-color: white;
+}
+
+.btn_more:hover {
+  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+@media screen and (max-width: 720px) {
+  .nav_btn {
+    display: none;
+  }
+}
+@media (min-width: 1764px) and (max-width: 2015px) {
+  .main-container {
+    width: 1764px;
   }
 }
