@@ -145,8 +145,8 @@ body {
 .main-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(236px, 1fr));
-  justify-content: center;
   grid-template-rows: masonry;
+  justify-content: center;
   gap: 0.5rem;
   margin-left: auto;
   margin-right: auto;
@@ -176,6 +176,10 @@ body {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
+.card:hover {
+  cursor: zoom-in;
+}
+
 .card img {
   border-radius: inherit;
   width: 100%;
@@ -199,11 +203,12 @@ body {
   display: inline-flex;
 }
 
-.card:hover .lowermenu {
-  display: flex;
+.btn_save:hover {
+  background-color: rgba(255, 0, 0, 0.575);
+  cursor: pointer;
 }
 
-.lowermenu {
+.card_menu {
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -215,15 +220,21 @@ body {
   display: none;
 }
 
-.lowermenu ion-icon {
-  background-color: lightgray;
-  font-size: 20px;
+.ion-icon {
+  background-color: rgba(211, 211, 211, 0.959);
   border-radius: 50%;
   padding: 8px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.lowermenu button {
+.card_menu button {
+  display: flex;
   min-width: 120px;
+  max-width: 140px;
   padding: 10px;
   background-color: lightgray;
   text-decoration: none;
@@ -231,16 +242,29 @@ body {
   border-style: none;
 }
 
-.lowermenu button a {
+.card_menu button a {
+  width: 100%;
   text-decoration: none;
   border-style: none;
-  color: white;
+  color: black;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 }
 
-@media screen and (min-width: 720px) {
-  .finder-container {
-    width: 72vw;
-  }
+.card:hover .card_menu {
+  display: flex;
+}
+
+.ion-icon:hover {
+  cursor: pointer;
+  background-color: white;
+  opacity: 0.83;
+}
+
+.card_menu button:hover {
+  cursor: pointer;
+  background-color: white;
+  opacity: 0.83;
 }
 
 .btn_more {
@@ -271,6 +295,12 @@ body {
 .btn_more:hover {
   opacity: 0.8;
   background-color: rgba(0, 0, 0, 0.06);
+}
+
+@media screen and (min-width: 720px) {
+  .finder-container {
+    width: 72vw;
+  }
 }
 
 @media screen and (max-width: 720px) {
