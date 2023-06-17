@@ -249,8 +249,10 @@ body {
   text-decoration: none;
   border-style: none;
   color: black;
-  overflow-x: hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
+  max-lines: 1;
+  white-space: nowrap;
 }
 
 .card-image:hover .card_menu {
